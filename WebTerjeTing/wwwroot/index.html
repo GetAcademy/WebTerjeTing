@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    Hei
+    <button onclick="getData()">Hent data</button>
+    <button onclick="postData()">Skriv data</button>
+
+    <script>
+        async function getData() {
+            let persons = await axios.get('/api/person');
+            console.log(persons);
+        }
+
+        async function postData() {
+            let data = { name: 'Knut' };
+            let id = await axios.post('/api/person', data);
+            console.log(id);
+        }
+    </script>
+
+
+</body>
+</html>
